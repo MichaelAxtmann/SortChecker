@@ -1,0 +1,3 @@
+[submodule "extern/highwayhash"]
+	path = extern/highwayhash
+	url = https://github.com/google/highwayhash/
