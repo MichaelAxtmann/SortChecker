@@ -1,11 +1,58 @@
 # SortChecker
 
+A simple but fast permutation checker.
+
+## Example
+
+The checker can be used sequentially:
 ```
-sort_checker::Checker<T, std::less<>> checker;
+#include <vector>
+#include <iostream>
+#include <checker.hpp>
+
+permute_checker::Checker<int> checker;
 std::vector<int> v;
+
 // Fill v
-checker.add_pre(v.data(), v.data() + size);
+
+for (const auto e : v) {
+	checker.add_pre(e);
+}
+
 // Permute v
-checker.add_post(v.data(), v.data() + size);
-checker.is_likely_permutation()
+
+for (const auto e : v) {
+	checker.add_post(e);
+}
+
+std::cout << "Permutation of input: " << checker.is_likely_permutation() << std::endl;
+```
+
+The checker can also used by multiple threads and combined afterwards:
+```
+#include <vector>
+#include <iostream>
+#include <checker.hpp>
+
+int num_threads = 4;
+std::vector<permute_checker::Checker<int>> checker;
+std::vector<int> v;
+
+// Fill v
+
+// Executed by thread i
+for (const auto e : v) {
+	checker[i].add_pre(e);
+}
+
+// Permute v
+
+// Executed by thread i
+for (const auto e : v) {
+	checker[i].add_post(e);
+}
+
+permute_checker::Checker<int>::combine(checker.begin(), checker.end());
+
+std::cout << "Permutation of input: " << checker[0].is_likely_permutation() << std::endl;
 ```

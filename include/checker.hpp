@@ -77,26 +77,23 @@ public:
     sum_post += hash(v);
     ++count_post;
   }
-  
-  void combine_pre(Checker<ValueType>* begin, Checker<ValueType>* end) {
-    std::for_each(begin, end, [this](const Checker<ValueType>& checker) {
-				this->count_pre += checker.count_pre;
-				this->sum_pre += checker.sum_pre;
-			      });
-    std::for_each(begin, end, [this](Checker<ValueType>& checker) {
-				checker.count_pre = this->count_pre;
-				checker.sum_pre = this->sum_pre;
-			      });
-  }
 
-  void combine_post(Checker<ValueType>* begin, Checker<ValueType>* end) {
-    std::for_each(begin, end, [this](const Checker<ValueType>& checker) {
-				this->count_post += checker.count_post;
-				this->sum_post += checker.sum_post;
+  template<class Iterator>
+  static void combine(Iterator begin, Iterator end) {
+    if (begin == end || begin + 1 == end) return;
+
+    auto& fc = *begin;
+    std::for_each(begin + 1, end, [&fc](const auto& c) {
+				fc.count_pre += c.count_pre;
+				fc.sum_pre += c.sum_pre;
+				fc.count_post += c.count_post;
+				fc.sum_post += c.sum_post;
 			      });
-    std::for_each(begin, end, [this](Checker<ValueType>& checker) {
-				checker.count_post = this->count_post;
-				checker.sum_post = this->sum_post;
+    std::for_each(begin + 1, end, [&fc](auto& c) {
+				c.count_pre = fc.count_pre;
+				c.sum_pre = fc.sum_pre;
+				c.count_post = fc.count_post;
+				c.sum_post = fc.sum_post;
 			      });
   }
 
