@@ -35,20 +35,20 @@ The checker can also used by multiple threads and combined afterwards:
 #include <checker.hpp>
 
 int num_threads = 4;
-std::vector<permute_checker::Checker<int>> checker;
-std::vector<int> v;
+std::vector<permute_checker::Checker<int>> checker(num_threads);
+std::vector<std::vector<int>> v(num_threads);
 
-// Fill v
+// Fill v[i]
 
 // Executed by thread i
-for (const auto e : v) {
+for (const auto e : v[i]) {
 	checker[i].add_pre(e);
 }
 
-// Permute v
+// Permute v[i]
 
 // Executed by thread i
-for (const auto e : v) {
+for (const auto e : v[i]) {
 	checker[i].add_post(e);
 }
 
