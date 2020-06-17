@@ -9,7 +9,7 @@
  * All rights reserved. Published under the BSD-2 license in the LICENSE file.
  ******************************************************************************/
 
-// Implementation adapted and simplified form the Project Thrill - http://project-thrill.org
+// Implementation adapted and simplified from the Project Thrill - http://project-thrill.org
 // thrill/common/hash.hpp
 // Copyright (C) 2016 Lorenz Hübschle-Schneider <lorenz@4z2.de>
 // All rights reserved. Published under the BSD-2 license in the LICENSE file.
@@ -42,7 +42,7 @@
 #include <smmintrin.h> // crc32 instructions
 #endif
 
-namespace permute_checker {
+namespace checker {
 namespace common {
 
 /*
@@ -348,5 +348,5 @@ private:
 };
 
 } // namespace common
-} // namespace permute_checker
+} // namespace checker
 

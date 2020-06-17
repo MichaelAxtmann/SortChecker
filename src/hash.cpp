@@ -9,7 +9,7 @@
  * All rights reserved. Published under the BSD-2 license in the LICENSE file.
  ******************************************************************************/
 
-// Implementation adapted and simplified form the Project Thrill - http://project-thrill.org
+// Implementation adapted and simplified from the Project Thrill - http://project-thrill.org
 // thrill/common/hash.cpp
 // Copyright (C) 2016 Lorenz Hübschle-Schneider <lorenz@4z2.de>
 // All rights reserved. Published under the BSD-2 license in the LICENSE file.
@@ -42,7 +42,7 @@
 #include <highwayhash/scalar_highway_tree_hash.h>
 #endif
 
-namespace permute_checker {
+namespace checker {
 namespace common {
 
 // Implementation switch for HighwayHash
@@ -563,6 +563,6 @@ uint32_t crc32_slicing_by_8(uint32_t crc, const void* data, size_t length) {
 }
 
 } // namespace common
-} // namespace permute_checker
+} // namespace checker
 
 /******************************************************************************/
