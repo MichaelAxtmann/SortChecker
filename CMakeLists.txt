@@ -4,5 +4,5 @@ project(SortChecker)
 
 include_directories(extern/highwayhash)
 
-add_library(checker STATIC src/hash.cpp)
+add_library(checker INTERFACE)
 target_include_directories(checker INTERFACE ./include/)

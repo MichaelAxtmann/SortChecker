@@ -36,7 +36,7 @@ namespace checker {
  *
  * \tparam ValueType Type of the elements being permuted
  */
-template <typename T, typename Hash = common::hash_crc32<T>>
+template <typename T, typename Hash = common::hash_tabulated<T>>
 class SortChecker
 {
 
