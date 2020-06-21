@@ -21,7 +21,7 @@
 #include <numeric>
 #include <vector>
 
-#include "../src/hash.hpp"
+#include "hash.hpp"
 
 #if defined(__GNUC__) || defined(__clang__)
 #define CHECKER_ATTRIBUTE_ALWAYS_INLINE __attribute__ ((always_inline)) inline
