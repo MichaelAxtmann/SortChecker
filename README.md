@@ -27,7 +27,7 @@ for (const auto e : v) {
 }
 
 std::cout << "Permutation of input: " << checker.is_likely_permutation() << std::endl;
-std::cout << "Sorted output: " << checker.is_likely_sorted(comp) << std::endl;
+std::cout << "Sorted output: " << checker.is_likely_sorted() << std::endl;
 ```
 
 The checker can also be used by multiple threads:
@@ -57,6 +57,6 @@ for (const auto e : v[i]) {
 	checker[i].add_post(e, comp);
 }
 
-std::cout << "Permutation of input: " << Checker::is_likely_permutation(v.begin(), v.end()) << std::endl;
-std::cout << "Sorted output: " << Checker::is_likely_sorted(v.begin(), v.end(), comp) << std::endl;
+std::cout << "Permutation of input: " << Checker::is_likely_permutation(checker.begin(), checker.end()) << std::endl;
+std::cout << "Sorted output: " << Checker::is_likely_sorted(checker.begin(), checker.end(), comp) << std::endl;
 ```
