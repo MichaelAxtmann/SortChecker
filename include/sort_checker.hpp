@@ -4,7 +4,7 @@
  * Probabilistic permutation checker
  *
  * Copyright (C) 2016 Lorenz Hübschle-Schneider <lorenz@4z2.de>
- * Copyright (C) 2020 Michael Axtmann <michael.axtmann@kit.edu>
+ * Copyright (C) 2020 Michael Axtmann <michael.axtmann@gmail.com>
  *
  * All rights reserved. Published under the BSD-2 license in the LICENSE file.
  ******************************************************************************/
